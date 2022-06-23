@@ -8,7 +8,7 @@ const server = http.createServer(app);
 
 const socketIo = require("socket.io")(server, {
     cors: {
-        origin: "*",
+        origin: "http://localhost:3001/",
         // "Access-Control-Allow-Origin": "*",
         methods: ["GET", "POST"],
     }
