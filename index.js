@@ -27,6 +27,8 @@ const socketIo = new Server(server, {
 var a = "hello";
 
 socketIo.on("connection", (socket) => {
+  a = 'bbbbbbbbbb'
+
   socket.on("sendDataClient", function (data) {
     a = 'zzzzzzzzzzzzz'
     a = data
