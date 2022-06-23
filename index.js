@@ -28,3 +28,9 @@ socketIo.on("connection", (socket) => {
 server.listen(3000, () => {
     console.log('Server đang chay tren cong 3000');
 });
+
+export default function handler(req, res) {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json');
+  res.json({ name: 'John Doe' });
+}
