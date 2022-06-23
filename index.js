@@ -11,7 +11,9 @@ const socketIo = require("socket.io")(server, {
         origin: "http://localhost:3001",
         // "Access-Control-Allow-Origin": "*",
         methods: ["GET", "POST"],
-    }
+    },
+    transports: ['websocket'],
+    credentials: true
   });
 
 
