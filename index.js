@@ -3,10 +3,11 @@ const http = require("http");
 var app = express();
 const cors = require("cors");
 app.use(cors());
+const { Server } = require("socket.io");
 
 const server = http.createServer(app);
 
-const socketIo = require("socket.io")(server, {
+const socketIo = new Server(server, {
   cors: {
     origin: "*",
     credentials: true,
@@ -14,10 +15,19 @@ const socketIo = require("socket.io")(server, {
   transports: ["websocket", "polling", "flashsocket"],
 });
 
-let a = 'hello';
+//
+// const socketIo = require("socket.io")(server, {
+//   cors: {
+//     origin: "*",
+//     credentials: true,
+//   },
+//   transports: ["websocket", "polling", "flashsocket"],
+// });
+
+let a = "hello";
 
 socketIo.on("connection", (socket) => {
-  a = 'google bye'
+  a = "google bye";
   console.log("New client connected" + socket.id);
 
   socket.emit("getId", socket.id);
@@ -33,7 +43,6 @@ socketIo.on("connection", (socket) => {
 });
 
 const { PORT = 3000 } = process.env;
-
 
 app.get("/", (req, res) => {
   res.send(a);
