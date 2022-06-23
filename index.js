@@ -24,10 +24,11 @@ const socketIo = new Server(server, {
 //   transports: ["websocket", "polling", "flashsocket"],
 // });
 
-let a = "hello";
+var a = "hello";
 
 socketIo.on("connection", (socket) => {
-  a = "google bye";
+  a = "goodbye";
+  socket.emit("getId", a);
 });
 
 //
