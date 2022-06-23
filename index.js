@@ -12,7 +12,7 @@ const socketIo = require("socket.io")(server, {
         // "Access-Control-Allow-Origin": "*",
         methods: ["GET", "POST"],
     },
-    // transports: ['websocket'],
+    transports: ["polling", "websocket"],
     credentials: true
   });
 
