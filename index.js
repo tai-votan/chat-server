@@ -25,13 +25,10 @@ socketIo.on("connection", (socket) => {
   });
 });
 
-server.listen(3000, () => {
-    console.log('Server đang chay tren cong 3000');
+const { PORT = 3000 } = process.env
+app.use(express.json({ extended: false }))
+
+server.listen(PORT, () => {
+    console.log(`Server đang chay tren cong ${PORT}`);
 });
 
-app.get('/api', (req, res) => {
-  const path = `/api/item/${v4()}`;
-  res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-  res.end(`Hello! Go to item: <a href="${path}">${path}</a>`);
-});
