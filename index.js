@@ -27,9 +27,11 @@ const socketIo = new Server(server, {
 var a = "hello";
 
 socketIo.on("connection", (socket) => {
-  a = "goodbye";
-  console.log("New client connected " + socket.id);
-  socket.emit("getId", a);
+  socket.on("sendDataClient", function (data) {
+    a = data
+    // socketIo.emit("sendDataServer", { data });
+  });
+  // socket.emit("getId", a);
 });
 
 //
