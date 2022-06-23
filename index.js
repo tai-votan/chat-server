@@ -28,6 +28,7 @@ var a = "hello";
 
 socketIo.on("connection", (socket) => {
   socket.on("sendDataClient", function (data) {
+    a = 'zzzzzzzzzzzzz'
     a = data
     // socketIo.emit("sendDataServer", { data });
   });
