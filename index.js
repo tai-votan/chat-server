@@ -6,6 +6,7 @@ const server = http.createServer(app);
 const socketIo = require("socket.io")(server, {
     cors: {
         origin: "*",
+        "Access-Control-Allow-Origin": "http://localhost:3001"
     }
   });
 
@@ -26,7 +27,6 @@ socketIo.on("connection", (socket) => {
 });
 
 const { PORT = 3000 } = process.env
-app.use(express.json({ extended: false }))
 
 server.listen(PORT, () => {
     console.log(`Server đang chay tren cong ${PORT}`);
