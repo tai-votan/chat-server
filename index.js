@@ -14,7 +14,10 @@ const socketIo = require("socket.io")(server, {
   transports: ["websocket", "polling", "flashsocket"],
 });
 
+let a = 'hello';
+
 socketIo.on("connection", (socket) => {
+  a = 'google bye'
   console.log("New client connected" + socket.id);
 
   socket.emit("getId", socket.id);
@@ -31,8 +34,9 @@ socketIo.on("connection", (socket) => {
 
 const { PORT = 3000 } = process.env;
 
+
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send(a);
 });
 
 server.listen(PORT, () => {
