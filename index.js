@@ -26,7 +26,7 @@ socketIo.on("connection", (socket) => {
 });
 
 const { PORT = 3000 } = process.env
-server.use(express.json({ extended: false }))
+app.use(express.json({ extended: false }))
 
 server.listen(PORT, () => {
     console.log(`Server đang chay tren cong ${PORT}`);
