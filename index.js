@@ -12,7 +12,7 @@ const socketIo = new Server(server, {
     origin: "*",
     credentials: true,
   },
-  transports: ["websocket", "polling", "flashsocket"],
+  // transports: ["websocket", "polling", "flashsocket"],
 });
 
 //
@@ -28,6 +28,7 @@ var a = "hello";
 
 socketIo.on("connection", (socket) => {
   a = "goodbye";
+  console.log("New client connected " + socket.id);
   socket.emit("getId", a);
 });
 
