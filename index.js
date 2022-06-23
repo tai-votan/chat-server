@@ -28,19 +28,24 @@ let a = "hello";
 
 socketIo.on("connection", (socket) => {
   a = "google bye";
-  console.log("New client connected" + socket.id);
-
-  socket.emit("getId", socket.id);
-
-  socket.on("sendDataClient", function (data) {
-    console.log(data);
-    socketIo.emit("sendDataServer", { data });
-  });
-
-  socket.on("disconnect", () => {
-    console.log("Client disconnected");
-  });
 });
+
+//
+// socketIo.on("connection", (socket) => {
+//   a = "google bye";
+//   console.log("New client connected" + socket.id);
+//
+//   socket.emit("getId", socket.id);
+//
+//   socket.on("sendDataClient", function (data) {
+//     console.log(data);
+//     socketIo.emit("sendDataServer", { data });
+//   });
+//
+//   socket.on("disconnect", () => {
+//     console.log("Client disconnected");
+//   });
+// });
 
 const { PORT = 3000 } = process.env;
 
